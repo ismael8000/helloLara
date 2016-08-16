@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 
 use App\Contato;
 
+
 class ContatoController extends Controller
 {
     /**
@@ -22,15 +23,20 @@ class ContatoController extends Controller
 	/**
      * Insere a mensagem no banco de dados
      */
-    public function enviar(Request $request){
+    public function enviar(Request $request, Contato $contato, \App\NotificacaoInterface $notificar){
 		
-		$contato = new Contato();
+		// $contato = new Contato();
 		$contato->nome = $request->get('nome');
 		$contato->email = $request->get('email');
 		$contato->mensagem = $request->get('mensagem');
 		$contato->save();
 
+		//Notificando
+		$notificar->notificar();
+
 		echo "Sua mensagem foi armazenada com sucesso! Código: " . $contato->id;
+
+		
     }
 
 	/**

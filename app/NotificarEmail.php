@@ -2,7 +2,7 @@
 
 namespace App;
 
-class NotificarEmail
+class NotificarEmail implements NotificacaoInterface
 {
     public function notificar(){
     	/*

@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //Informando que, ao injetar a NotificacaoInterface, retorne uma instancia de NotificarPombo
+        $this->app->bind(\App\NotificacaoInterface::class, \App\NotificarPombo::class);
     }
 }

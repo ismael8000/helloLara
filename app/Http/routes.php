@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::post('/enviar', function(Illuminate\Http\Request $request){
-	var_dump($request->all());
-});
+Route::get('/', 'ContatoController@index');
+Route::post('/enviar', 'ContatoController@enviar');
+Route::get('/lista', 'ContatoController@lista');

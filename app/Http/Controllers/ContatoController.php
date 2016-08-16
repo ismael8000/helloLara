@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-
+use App\Http\Requests\ContatoEnviarRequest;
 use App\Http\Controllers\Controller;
-
 use App\Contato;
-
 use App\NotificacaoInterface as Notify;
 
 
@@ -25,7 +20,7 @@ class ContatoController extends Controller
 	/**
      * Insere a mensagem no banco de dados
      */
-    public function enviar(Request $request, Contato $contato, Notify $notificar){
+    public function enviar(ContatoEnviarRequest $request, Contato $contato, Notify $notificar){
 		
 		// $contato = new Contato();
 		$contato->nome = $request->get('nome');

@@ -13,4 +13,12 @@
 
 Route::get('/', 'ContatoController@index');
 Route::post('/enviar', 'ContatoController@enviar');
-Route::get('/lista', 'ContatoController@lista');
+// Route::get('/lista', 'ContatoController@lista');
+Route::get('/lista', ['middleware' => 'auth', 'uses' => 'ContatoController@lista']);
+
+
+//Rotas para pagina de login
+
+Route::get('auth/login', ['as' => 'auth.form', 'uses' => 'Auth\AuthController@getLogin']);
+Route::post('auth/login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@postLogin']);
+Route::get('auth/logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@getLogout']);

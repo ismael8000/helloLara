@@ -21,19 +21,21 @@ class ContatoController extends Controller
      * Insere a mensagem no banco de dados
      */
     public function enviar(ContatoEnviarRequest $request, Contato $contato, Notify $notificar){
-		
+
 		// $contato = new Contato();
 		$contato->nome = $request->get('nome');
 		$contato->email = $request->get('email');
 		$contato->mensagem = $request->get('mensagem');
-		$contato->save();
+      $contato->categoria_id = $request->get('categoria_id');
+
+    $contato->save();
 
 		//Notificando
 		$notificar->notificar();
 
 		echo "Sua mensagem foi armazenada com sucesso! Código: " . $contato->id;
 
-		
+
     }
 
 	/**

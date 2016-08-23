@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'ContatoController@index');
+Route::get('/', 'ContatoController@lista');
+Route::get('/contato', 'ContatoController@index');
 Route::post('/enviar', 'ContatoController@enviar');
 // Route::get('/lista', 'ContatoController@lista');
 Route::get('/lista', ['middleware' => 'auth', 'uses' => 'ContatoController@lista']);

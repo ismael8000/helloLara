@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ContactMe</title>
+@extends('app')
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+@section('conteudo')
 
-</head>
-<body>
-
-<div class="container">
 
     <h1>Lista de mensagens</h1>
 
@@ -38,7 +30,4 @@
       </tbody>
     </table>
 
-</div>
-
-</body>
-</html>
+@endsection
